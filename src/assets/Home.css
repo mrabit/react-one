@@ -1,0 +1,47 @@
+.home-img {
+  height: calc(100vh - 3.125rem);
+  width: 100%;
+  object-fit: cover;
+  position: relative;
+}
+
+.home-mask {
+  margin-top: 3.125rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: calc(100vh - 3.125rem);
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+}
+
+.home-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  color: white;
+  font-size: 3rem;
+}
+
+.home-content-title {
+  font-size: 1rem;
+}
+
+.home-info-list-title {
+  font-size: 1.5rem;
+  margin: .625rem 0;
+}
+
+.home-info-list-author,
+.home-info-list-time {
+  font-size: .75rem;
+  color: #98a6ad;
+}
+
+.home-info-list-img {
+  width: 100%;
+  object-fit: cover;
+  margin: .625rem 0;
+}

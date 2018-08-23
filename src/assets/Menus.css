@@ -1,4 +1,4 @@
-:local(.menus) {
+.menus {
   width: 12rem;
   height: 100%;
   position: fixed;
@@ -17,13 +17,13 @@
   transition: transform 300ms ease;
 }
 
-:local(.menus.menus-open) {
+.menus.menus-open {
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
 
-:local(.menus-list) {
+.menus-list {
   z-index: 100;
   text-align: center;
   list-style: none;
@@ -31,13 +31,13 @@
   padding: 1rem;
 }
 
-:local(.menus-list-item) {
+.menus-list-item {
   font-size: 1rem;
   padding: 0.5rem 0;
   line-height: 2.74rem;
 }
 
-:local(.menus-mask) {
+.menus-mask {
   display: none;
   background-color: hsla(0, 0%, 100%, 0);
   top: 0;
@@ -48,6 +48,6 @@
   height: 100%;
 }
 
-:local(.menus-mask.menus-open) {
+.menus-mask.menus-open {
   display: block;
 }

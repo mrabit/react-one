@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import { setLoading } from '../actions/header';
 export const GET_INFO = "GET_INFO";
 
 export const getInfo = _ => {
@@ -682,10 +682,12 @@ export const getInfo = _ => {
         ]
       }
     }
-    // return dispatch({
-    //   type: GET_INFO,
-    //   data: defaultData
-    // })
+    dispatch(setLoading(false))
+    return dispatch({
+      type: GET_INFO,
+      data: defaultData
+    })
+    dispatch(setLoading(true))
     axios.get('/api/channel/one/0/成都市', {
         params: {
           platform: 'ios',
@@ -693,11 +695,11 @@ export const getInfo = _ => {
           version: 'v4.5.6'
         }
       })
-      .then(d => {
+      .then(d =>
         dispatch({
           type: GET_INFO,
           data: d.data.data
-        });
-      })
+        }))
+      .then(_ => dispatch(setLoading(false)));
   }
 }

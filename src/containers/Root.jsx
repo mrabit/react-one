@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import Home from './Home';
 import Header from './Header';
 import Menus from './Menus';
-import One from './One';
+import OneDetails from './OneDetails';
+import OneList from './OneList';
 import {
   BrowserRouter as Router,
-  Route
+  Route, Switch
 } from 'react-router-dom'
 
 export default class Root extends Component {
@@ -18,7 +19,10 @@ export default class Root extends Component {
           {/* 首页 */}
           <Route exact path="/" component={Home} />
           {/* 图文 */}
-          <Route path="/one/:id" component={One} />
+          <Switch>
+            <Route exact path="/one" component={OneList} />
+            <Route path="/one/:id" component={OneDetails} />
+          </Switch>
           {/* 阅读 */}
           {/* <Route path="/article" component={Topics} /> */}
         </div>

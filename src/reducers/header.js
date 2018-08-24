@@ -1,8 +1,9 @@
-import { TOGGLE_SEARCH, CHANGE_TITLE } from '../actions/header';
+import { TOGGLE_SEARCH, CHANGE_TITLE, LOADING_STATUS } from '../actions/header';
 
 const initState = {
   isOpen: false,
-  title: ""
+  title: "",
+  loading: true
 }
 export default (state = initState, action) => {
   switch (action.type) {
@@ -13,6 +14,10 @@ export default (state = initState, action) => {
     case CHANGE_TITLE:
       return Object.assign({}, state, {
         title: action.title
+      });
+    case LOADING_STATUS:
+      return Object.assign({}, state, {
+        loading: action.loading
       });
     default:
       return state;

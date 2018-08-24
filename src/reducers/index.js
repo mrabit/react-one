@@ -5,13 +5,15 @@ import { combineReducers } from 'redux';
 import home from './home';
 import menus from './menus';
 import header from './header';
-import one from './one';
+import oneDetails from './oneDetails';
+import oneList from './oneList';
 
 const reducers = combineReducers({
   home,
   menus,
   header,
-  one
+  oneDetails,
+  oneList
 })
 
 const loggerMiddleware = createLogger()

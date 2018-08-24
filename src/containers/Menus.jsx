@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { toggleMenu } from '../actions/menus';
 import cs from 'classname';
 import '../assets/Menus.css';
+import { Link } from 'react-router-dom';
 
 class Menus extends Component {
   static propTypes = {
@@ -19,7 +20,9 @@ class Menus extends Component {
       <div>
         <div className={cs({ "menus": true, "menus-open": this.props.isOpen })}>
           <ul className="menus-list">
-            <li className="menus-list-item">图文</li>
+            <li className="menus-list-item">
+              <Link to="/one" onClick={this.handleClickCloseMenus}>图文</Link>
+            </li>
             <li className="menus-list-item">阅读</li>
             <li className="menus-list-item">音乐</li>
             <li className="menus-list-item">影视</li>

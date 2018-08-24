@@ -1,25 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { changeTitle } from '../actions/header';
-import { getOneInfo } from '../actions/one';
-import { connect } from 'react-redux';
 import dayjs from 'dayjs';
-import '../assets/One.css';
+import { Link } from 'react-router-dom';
 
-class One extends Component {
+export default class OneDetails extends Component {
   static propTypes = {
-    dispatch: PropTypes.func.isRequired,
-    oneInfo: PropTypes.object.isRequired
-  }
-  componentWillMount = _ => {
-    const { dispatch, match } = this.props;
-    dispatch(changeTitle('一个图文'));
-    dispatch(getOneInfo(match.params.id));
+    oneInfo: PropTypes.object.isRequired,
+    id: PropTypes.string.isRequired
   }
   render() {
     return (
-      <div className="container no-padder">
-        <img className="img-full" src={this.props.oneInfo.img_url} alt="" />
+      <div>
+        <div className="one-img">
+          <img className="img-full" src={this.props.oneInfo.img_url} alt="" />
+        </div>
         <div className="wrapper">
           <p className="block clearfix">
             <span className="pull-left">{(this.props.oneInfo.share_info || {}).title}</span>
@@ -42,20 +36,10 @@ class One extends Component {
           </p>
         </div>
         <div className="one-footer">
-          <div>上一篇</div>
-          <div>下一篇</div>
+          <Link to={`/one/${parseInt(this.props.id) + 1}`}>上一篇</Link>
+          <Link to={`/one/${parseInt(this.props.id) - 1}`}>下一篇</Link>
         </div>
       </div>
     )
   }
 }
-
-const mapStateToProps = state => {
-  const { one } = state;
-  console.log(one);
-  return {
-    oneInfo: one.data
-  }
-}
-
-export default connect(mapStateToProps)(One);

@@ -21,6 +21,8 @@ class Menus extends Component {
         <div className={cs({ "menus": true, "menus-open": this.props.isOpen })}>
           <ul className="menus-list">
             <li className="menus-list-item">
+              <Link to="/" onClick={this.handleClickCloseMenus}>首页</Link>
+            </li><li className="menus-list-item">
               <Link to="/one" onClick={this.handleClickCloseMenus}>图文</Link>
             </li>
             <li className="menus-list-item">阅读</li>

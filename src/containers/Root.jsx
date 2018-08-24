@@ -4,6 +4,7 @@ import Header from './Header';
 import Menus from './Menus';
 import OneDetails from './OneDetails';
 import OneList from './OneList';
+import PageContainer from '../components/PageContainer';
 import {
   BrowserRouter as Router,
   Route, Switch
@@ -13,7 +14,7 @@ export default class Root extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <PageContainer>
           <Header />
           <Menus />
           {/* 首页 */}
@@ -25,7 +26,7 @@ export default class Root extends Component {
           </Switch>
           {/* 阅读 */}
           {/* <Route path="/article" component={Topics} /> */}
-        </div>
+        </PageContainer>
       </Router>
 
     )

@@ -5,7 +5,7 @@ import '../assets/Home.css';
 import { getInfo } from '../actions/home';
 import { changeTitle } from '../actions/header';
 import dayjs from 'dayjs';
-import InfoList from '../components/infoList';
+import InfoList from '../components/InfoList';
 import { Link } from "react-router-dom";
 
 class Home extends Component {

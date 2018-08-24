@@ -3,10 +3,9 @@ import PropTypes from 'prop-types';
 import { changeTitle } from '../actions/header';
 import { getOneList } from '../actions/oneList';
 import { connect } from 'react-redux';
-import dayjs from 'dayjs';
 import '../assets/One.css';
-import { Link } from 'react-router-dom';
 import Loading from '../components/Loading';
+import OneListCom from '../components/OneList';
 
 class OneList extends Component {
   static propTypes = {
@@ -46,22 +45,7 @@ class OneList extends Component {
   render() {
     return (
       <div className="container no-padder bg">
-        {
-          this.props.oneList.map((v, k) => {
-            return (
-              <div className="one-list-items" key={k}>
-                <Link to={`/one/${v.hpcontent_id}`}>
-                  <p className="text-center one-list-date">{dayjs(v.hp_makettime).format("YYYY / MM / DD")}</p>
-                  <p className="text-center text-xs m-b">{v.hp_title}</p>
-                  <img className="one-list-img" src={v.hp_img_url} alt="" />
-                  <p className="text-center text-xs">{v.hp_author}</p>
-                  <p className="wrapper">{v.hp_content}</p>
-                  <p className="text-center text-xs">{v.text_authors}</p>
-                </Link>
-              </div>
-            )
-          })
-        }
+        <OneListCom oneList={this.props.oneList} />
         <Loading loading={this.props.loading} />
       </div>
     )

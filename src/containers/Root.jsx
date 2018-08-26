@@ -4,6 +4,8 @@ import Header from './Header';
 import Menus from './Menus';
 import OneDetails from './OneDetails';
 import OneList from './OneList';
+import ArticleList from './ArticleList';
+import ArticleDetails from './ArticleDetails';
 import PageContainer from '../components/PageContainer';
 import {
   BrowserRouter as Router,
@@ -25,7 +27,10 @@ export default class Root extends Component {
             <Route path="/one/:id" component={OneDetails} />
           </Switch>
           {/* 阅读 */}
-          {/* <Route path="/article" component={Topics} /> */}
+          <Switch>
+            <Route exact path="/article" component={ArticleList}></Route>
+            <Route exact path="/article/:id" component={ArticleDetails}></Route>
+          </Switch>
         </PageContainer>
       </Router>
 

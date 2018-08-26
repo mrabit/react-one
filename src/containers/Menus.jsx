@@ -22,10 +22,13 @@ class Menus extends Component {
           <ul className="menus-list">
             <li className="menus-list-item">
               <Link to="/" onClick={this.handleClickCloseMenus}>首页</Link>
-            </li><li className="menus-list-item">
+            </li>
+            <li className="menus-list-item">
               <Link to="/one" onClick={this.handleClickCloseMenus}>图文</Link>
             </li>
-            <li className="menus-list-item">阅读</li>
+            <li className="menus-list-item">
+              <Link to="/article" onClick={this.handleClickCloseMenus}>阅读</Link>
+            </li>
             <li className="menus-list-item">音乐</li>
             <li className="menus-list-item">影视</li>
             <li className="menus-list-item">关于</li>

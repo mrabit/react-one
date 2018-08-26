@@ -1,13 +1,10 @@
-import { GET_INFO } from '../actions/home';
+import { GET_HOME_INFO } from '../actions/articleList';
 
 export default function(state = {
-  data: {
-    id: 0,
-    content_list: []
-  }
+  data: []
 }, action) {
   switch (action.type) {
-    case GET_INFO:
+    case GET_HOME_INFO:
       return { data: action.data };
     default:
       return state;

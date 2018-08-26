@@ -14,7 +14,7 @@ class OneList extends Component {
     loading: PropTypes.bool.isRequired,
   }
   componentWillMount = _ => {
-    const { dispatch, match, oneList } = this.props;
+    const { dispatch, oneList } = this.props;
     window.addEventListener('scroll', this.scrollFunc);
     dispatch(changeTitle('一个图文'));
     if (!oneList.length) {
@@ -25,7 +25,7 @@ class OneList extends Component {
     window.removeEventListener('scroll', this.scrollFunc);
   }
   scrollFunc = _ => {
-    const { oneList, dispatch, loading, match } = this.props;
+    const { oneList, dispatch, loading } = this.props;
     const lastId = (oneList[oneList.length - 1] || {}).hpcontent_id || 0;
     // 当前高度
     var currY =

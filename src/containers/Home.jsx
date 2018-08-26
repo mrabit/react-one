@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import '../assets/Home.css';
-import { getInfo } from '../actions/home';
+import { getArticleList, GET_HOME_INFO } from '../actions/articleList';
 import { changeTitle } from '../actions/header';
 import dayjs from 'dayjs';
-import InfoList from '../components/InfoList';
+import ArticleListCom from '../components/ArticleList';
 import { Link } from "react-router-dom";
 
 class Home extends Component {
@@ -13,12 +13,11 @@ class Home extends Component {
     date: PropTypes.string,
     firstScreen: PropTypes.object,
     infoList: PropTypes.array,
-    categoryMap: PropTypes.object,
     dispatch: PropTypes.func
   }
   componentWillMount = _ => {
     const { dispatch } = this.props;
-    dispatch(getInfo());
+    dispatch(getArticleList([0], GET_HOME_INFO));
     dispatch(changeTitle('一个'));
   }
   render() {
@@ -42,7 +41,7 @@ class Home extends Component {
               </div>
             </div>
           </Link>
-          <InfoList categoryMap={this.props.categoryMap} infoList={this.props.infoList} />
+          <ArticleListCom articleList={this.props.articleList} />
         </div>
       </div >
     )
@@ -51,18 +50,11 @@ class Home extends Component {
 
 const mapStateToProps = state => {
   const { home } = state;
-  const content_list = home.data.content_list || [];
+  const content_list = home.data || [];
   return {
     date: home.data.date,
     firstScreen: content_list[0] || {},
-    infoList: content_list.slice(1, content_list.length),
-    categoryMap: {
-      "1": "ONE STORY",
-      "2": "连载",
-      "3": "问答",
-      "4": "音乐",
-      "5": "影视",
-    }
+    articleList: content_list.slice(1, content_list.length)
   };
 }
 

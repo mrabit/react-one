@@ -7,13 +7,17 @@ import menus from './menus';
 import header from './header';
 import oneDetails from './oneDetails';
 import oneList from './oneList';
+import articleList from './articleList';
+import articleDetails from './articleDetails';
 
 const reducers = combineReducers({
   home,
   menus,
   header,
   oneDetails,
-  oneList
+  oneList,
+  articleList,
+  articleDetails
 })
 
 const loggerMiddleware = createLogger()

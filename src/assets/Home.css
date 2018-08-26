@@ -29,19 +29,3 @@
   font-size: 1rem;
 }
 
-.home-info-list-title {
-  font-size: 1.5rem;
-  margin: .625rem 0;
-}
-
-.home-info-list-author,
-.home-info-list-time {
-  font-size: .75rem;
-  color: #98a6ad;
-}
-
-.home-info-list-img {
-  width: 100%;
-  object-fit: cover;
-  margin: .625rem 0;
-}

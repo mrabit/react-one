@@ -93,11 +93,11 @@ export const getOneDetails = id => {
         }
       }
     }
-    dispatch(setLoading(false))
-    return dispatch({
-      type: GET_ONE_DETAILS,
-      data: defaultData
-    })
+    // dispatch(setLoading(false))
+    // return dispatch({
+    //   type: GET_ONE_DETAILS,
+    //   data: defaultData
+    // })
     dispatch(setLoading(true));
     axios.get(`/api/hp/feeds/${id}/成都市`, {
         params: {

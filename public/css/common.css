@@ -541,7 +541,7 @@ a {
   vertical-align: middle;
   text-align: center;
   z-index: 99999;
-  background: rgba(0, 0, 0, 0.4);
+  /* background: rgba(0, 0, 0, 0.4); */
 }
 
 .mask-msg {
@@ -561,4 +561,9 @@ a {
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+}
+
+.mask-msg i {
+  font-size: 3.125rem;
+  color: #ccc;
 }

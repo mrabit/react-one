@@ -9,8 +9,8 @@ export default class Loading extends Component {
     if (this.props.loading) {
       return (<div className="mask-content">
         <div className="mask-msg">
-          <i className="fa fa-spinner fa-spin fa-fw"></i>加载中...
-      </div>
+          <i className="iconfont icon-Loading icon-spin"></i>
+        </div>
       </div>)
     }
     return null;

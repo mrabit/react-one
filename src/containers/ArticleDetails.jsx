@@ -35,7 +35,7 @@ class ArticleDetails extends Component {
           </p>
           <hr className="article-line" />
           <p className="article-author">
-            文 | {this.props.article.author_list.map(v => v.user_name).join(',')}
+            文 | {this.props.article.author_list && this.props.article.author_list.map(v => v.user_name).join(',')}
           </p>
           <div className="article-content" dangerouslySetInnerHTML={{ __html: this.props.article.content }}>
           </div>

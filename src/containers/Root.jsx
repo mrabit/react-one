@@ -8,6 +8,7 @@ import ArticleList from './ArticleList';
 import ArticleDetails from './ArticleDetails';
 import PageContainer from '../components/PageContainer';
 import About from '../components/About';
+import NotFound from '../components/NotFound';
 import {
   BrowserRouter as Router,
   Route, Switch
@@ -20,19 +21,20 @@ export default class Root extends Component {
         <PageContainer>
           <Header />
           <Menus />
-          {/* 首页 */}
-          <Route exact path="/" component={Home} />
-          {/* 图文 */}
           <Switch>
+            {/* 首页 */}
+            <Route exact path="/" component={Home} />
+            {/* 图文 */}
             <Route exact path="/one" component={OneList} />
-            <Route path="/one/:id" component={OneDetails} />
-          </Switch>
-          {/* 阅读 */}
-          <Switch>
+            <Route exact path="/one/:id" component={OneDetails} />
+            {/* 阅读 */}
             <Route exact path="/article" component={ArticleList}></Route>
             <Route exact path="/article/:id" component={ArticleDetails}></Route>
+            {/* 关于 */}
+            <Route exact path="/about" component={About}></Route>
+            {/* 404 */}
+            <Route component={NotFound}></Route>
           </Switch>
-          <Route exact path="/about" component={About}></Route>
         </PageContainer>
       </Router>
 

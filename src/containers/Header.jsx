@@ -30,7 +30,7 @@ class Header extends Component {
             <i className="iconfont icon-menu"></i>
           </div>
           <p className="inline header-title">{this.props.title}</p>
-          <div className="pull-right inline menu-icon" onClick={this.handleClickSreachPanel}>
+          <div className="pull-right inline menu-icon" style={{ visibility: "hidden" }} onClick={this.handleClickSreachPanel}>
             <i className="iconfont icon-sousuo search-btn"></i>
           </div>
         </div>

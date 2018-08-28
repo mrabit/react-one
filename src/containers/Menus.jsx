@@ -29,9 +29,11 @@ class Menus extends Component {
             <li className="menus-list-item">
               <Link to="/article" onClick={this.handleClickCloseMenus}>阅读</Link>
             </li>
-            <li className="menus-list-item">音乐</li>
-            <li className="menus-list-item">影视</li>
-            <li className="menus-list-item">关于</li>
+            {/* <li className="menus-list-item">音乐</li>
+            <li className="menus-list-item">影视</li> */}
+            <li className="menus-list-item">
+              <Link to="/about" onClick={this.handleClickCloseMenus}>关于</Link>
+            </li>
           </ul>
         </div>
         <div className={cs({ "menus-mask": true, "menus-open": this.props.isOpen })} onClick={this.handleClickCloseMenus}></div>

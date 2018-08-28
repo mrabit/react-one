@@ -14,13 +14,15 @@ export default class OneList extends Component {
           this.props.oneList.map((v, k) => {
             return (
               <div className="one-list-items" key={k}>
-                <Link to={`/one/${v.hpcontent_id}`}>
-                  <p className="text-center one-list-date">{dayjs(v.hp_makettime).format("YYYY / MM / DD")}</p>
-                  <p className="text-center text-xs m-b">{v.hp_title}</p>
-                  <img className="one-list-img" src={v.hp_img_url} alt="" />
-                  <p className="text-center text-xs">{v.hp_author}</p>
-                  <p className="wrapper">{v.hp_content}</p>
-                  <p className="text-center text-xs">{v.text_authors}</p>
+                <Link to={`/one/${v.id}`}>
+                  <p className="text-center one-list-date">{dayjs(v.post_date).format("YYYY / MM / DD")}</p>
+                  <p className="text-center text-xs m-b-sm m-t-sm">{v.volume}</p>
+                  <div className="one-img m-b">
+                    <img src={v.img_url} alt="" />
+                  </div>
+                  <p className="text-center text-xs">{`${v.title} | ${v.pic_info}`}</p>
+                  <p className="wrapper">{v.forward}</p>
+                  <p className="text-center text-xs">{v.words_info}</p>
                 </Link>
               </div>
             )

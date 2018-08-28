@@ -12,21 +12,22 @@ class OneList extends Component {
     dispatch: PropTypes.func.isRequired,
     oneList: PropTypes.array.isRequired,
     loading: PropTypes.bool.isRequired,
+    currentPage: PropTypes.number.isRequired,
+    totalPage: PropTypes.number.isRequired,
   }
   componentWillMount = _ => {
     const { dispatch, oneList } = this.props;
     window.addEventListener('scroll', this.scrollFunc);
     dispatch(changeTitle('一个图文'));
     if (!oneList.length) {
-      dispatch(getOneList(0));
+      dispatch(getOneList(1));
     }
   }
   componentWillUnmount = _ => {
     window.removeEventListener('scroll', this.scrollFunc);
   }
   scrollFunc = _ => {
-    const { oneList, dispatch, loading } = this.props;
-    const lastId = (oneList[oneList.length - 1] || {}).hpcontent_id || 0;
+    const { currentPage, totalPage, dispatch, loading } = this.props;
     // 当前高度
     var currY =
       window.pageYOffset || //用于FF
@@ -38,8 +39,8 @@ class OneList extends Component {
       document.body.scrollHeight ||
       0;
     console.log(scrollHeight, currY, (scrollHeight - currY) / 2, window.innerHeight);
-    if ((scrollHeight - currY) / 2 <= window.innerHeight && !loading) {
-      dispatch(getOneList(lastId));
+    if ((scrollHeight - currY) / 2 <= window.innerHeight && !loading && currentPage < totalPage) {
+      dispatch(getOneList(currentPage + 1));
     }
   }
   render() {
@@ -56,7 +57,9 @@ const mapStateToProps = state => {
   const { oneList, header } = state;
   return {
     oneList: oneList.data,
-    loading: header.loading
+    loading: header.loading,
+    currentPage: oneList.currentPage,
+    totalPage: oneList.totalPage
   }
 }
 

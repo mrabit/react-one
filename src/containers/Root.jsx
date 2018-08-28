@@ -7,6 +7,7 @@ import OneList from './OneList';
 import ArticleList from './ArticleList';
 import ArticleDetails from './ArticleDetails';
 import PageContainer from '../components/PageContainer';
+import About from '../components/About';
 import {
   BrowserRouter as Router,
   Route, Switch
@@ -31,6 +32,7 @@ export default class Root extends Component {
             <Route exact path="/article" component={ArticleList}></Route>
             <Route exact path="/article/:id" component={ArticleDetails}></Route>
           </Switch>
+          <Route exact path="/about" component={About}></Route>
         </PageContainer>
       </Router>
 

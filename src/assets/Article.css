@@ -12,9 +12,35 @@
 }
 
 .article-list-img {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  /*最大不能超过屏幕*/
+  max-width: 100%;
   width: 100%;
-  object-fit: cover;
+  overflow: hidden;
   margin: .625rem 0;
+}
+
+/*这个是为了使用padding做占位, 也是为了把高给挤下去*/
+
+.article-list-img::before {
+  content: " ";
+  display: block;
+  background-color: #f7f7f7;
+  padding-bottom: 60%;
+}
+
+/*设置图片, 使用绝对定位*/
+
+.article-list-img img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 100%;
+  /*设置高会把图片强制拉满容器, 解决图片比例不对(要求是1:1, 实际是2:1)的显示缺陷badcase*/
+  /*height: 100%;*/
 }
 
 /******** articleList end ********/
@@ -49,7 +75,7 @@
 
 .article-author-title {
   font-size: .9375rem;
-  margin-top: 3.75rem;
+  margin-top: 3rem;
   margin-bottom: 0;
 }
 
@@ -78,7 +104,8 @@
   box-shadow: 0rem .125rem .25rem rgba(0, 0, 0, 0.5);
 }
 
-.article-footer>a {
+.article-footer>a,
+.article-footer>p {
   width: 50%;
   text-align: center;
   float: left;

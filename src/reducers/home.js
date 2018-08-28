@@ -1,4 +1,4 @@
-import { GET_HOME_INFO } from '../actions/articleList';
+import { GET_HOME_INFO } from '../actions/home';
 
 export default function(state = {
   data: []

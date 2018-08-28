@@ -22,7 +22,6 @@ class ArticleDetails extends Component {
     const { match: nextMatch } = nextProps;
     const { dispatch, match } = this.props;
     if (nextMatch.params.id !== match.params.id) {
-      debugger
       dispatch(getArticleDetails(nextMatch.params.id));
     }
   }
@@ -32,19 +31,21 @@ class ArticleDetails extends Component {
       Details = (<div>
         <div className="padder">
           <p className="article-title">
-            {this.props.article.hp_title}
+            {this.props.article.title}
           </p>
           <hr className="article-line" />
           <p className="article-author">
-            文 | {this.props.article.hp_author}
+            文 | {this.props.article.author_list.map(v => v.user_name).join(',')}
           </p>
-          <div className="article-content" dangerouslySetInnerHTML={{ __html: this.props.article.hp_content }}>
+          <div className="article-content" dangerouslySetInnerHTML={{ __html: this.props.article.content }}>
           </div>
+          <p className="text-muted text-xs m-t">{this.props.article.author_introduce}</p>
+          <p className="text-muted text-xs m-t">{this.props.article.copyright}</p>
           <p className="article-author-title">作者</p>
           <hr className="article-line" />
           <div className="article-author-list">
             {
-              this.props.article.author && this.props.article.author.map((v, k) => {
+              this.props.article.author_list && this.props.article.author_list.map((v, k) => {
                 return (
                   <div className="article-author-items" key={k}>
                     <img src={v.web_url} alt="" />
@@ -57,8 +58,8 @@ class ArticleDetails extends Component {
           </div>
         </div>
         <div className="article-footer">
-          <Link to={`/article/${parseInt(this.props.match.params.id) + 1}`}>上一篇</Link>
-          <Link to={`/article/${parseInt(this.props.match.params.id) - 1}`}>下一篇</Link>
+          <LinkOrP id={this.props.article.prev}>上一篇</LinkOrP>
+          <LinkOrP id={this.props.article.next}>下一篇</LinkOrP>
         </div>
       </div>);
     }
@@ -71,6 +72,18 @@ class ArticleDetails extends Component {
   }
 }
 
+class LinkOrP extends Component {
+  static propTypes = {
+    id: PropTypes.number
+  }
+  render() {
+    if (typeof this.props.id === "undefined") {
+      return <p>{this.props.children}</p>
+    } else {
+      return <Link to={`/article/${this.props.id}`}>{this.props.children}</Link>
+    }
+  }
+}
 
 const mapStateToProps = state => {
   const { articleDetails, header } = state;

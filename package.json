@@ -24,7 +24,7 @@
   },
   "proxy": {
     "/api": {
-      "target": "http://v3.wufazhuce.com:8000",
+      "target": "http://localhost:8181/",
       "changeOrigin": true
     }
   }

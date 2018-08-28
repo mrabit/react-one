@@ -16,8 +16,10 @@ export default class OneDetails extends Component {
         </div>
         <div className="wrapper">
           <p className="block clearfix">
-            <span className="pull-left">{(this.props.oneInfo.share_info || {}).title}</span>
-            <span className="pull-right">摄影 | {this.props.oneInfo.pic_info}</span>
+            <span className="pull-left">{this.props.oneInfo.volume}</span>
+            <span className="pull-right">{this.props.oneInfo.title}{
+              this.props.oneInfo.pic_info ? ' | ' + this.props.oneInfo.pic_info : ''
+            }</span>
           </p>
           <p className="text-center m-t">
             <span className="one-day ">
@@ -36,10 +38,23 @@ export default class OneDetails extends Component {
           </p>
         </div>
         <div className="one-footer">
-          <Link to={`/one/${parseInt(this.props.id) + 1}`}>上一篇</Link>
-          <Link to={`/one/${parseInt(this.props.id) - 1}`}>下一篇</Link>
+          <LinkOrP id={this.props.oneInfo.prev}>上一篇</LinkOrP>
+          <LinkOrP id={this.props.oneInfo.next}>下一篇</LinkOrP>
         </div>
       </div>
     )
+  }
+}
+
+class LinkOrP extends Component {
+  static propTypes = {
+    id: PropTypes.number
+  }
+  render() {
+    if (typeof this.props.id === "undefined") {
+      return <p>{this.props.children}</p>
+    } else {
+      return <Link to={`/one/${this.props.id}`}>{this.props.children}</Link>
+    }
   }
 }

@@ -28,7 +28,9 @@ class Home extends Component {
         <div>
           {/* 首页 - 图文 */}
           <Link to={`/one/${this.props.firstScreen.id}`}>
-            <img className="home-img" src={this.props.firstScreen.img_url} alt="" />
+            <div className="home-img">
+              <img src={this.props.firstScreen.img_url} alt="" />
+            </div>
             <div className="home-mask">
               <div className="home-content">
                 <p className="padder">

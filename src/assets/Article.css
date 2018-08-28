@@ -71,6 +71,7 @@
 .article-content {
   line-height: 1.625rem;
   margin-top: .875rem;
+  word-break: break-all;
 }
 
 .article-author-title {

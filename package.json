@@ -24,7 +24,7 @@
   },
   "proxy": {
     "/api": {
-      "target": "http://localhost:8181/",
+      "target": "https://one.mrabit.com/",
       "changeOrigin": true
     }
   }

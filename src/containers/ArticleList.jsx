@@ -17,6 +17,7 @@ class ArticleList extends Component {
   }
   componentWillMount = _ => {
     const { dispatch, articleList } = this.props;
+    document.title = "阅读 - 「ONE · 一个」";
     window.addEventListener('scroll', this.scrollFunc);
     dispatch(changeTitle('一个阅读'));
     if (!articleList.length) {

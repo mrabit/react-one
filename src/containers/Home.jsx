@@ -18,6 +18,7 @@ class Home extends Component {
   }
   componentWillMount = _ => {
     const { dispatch } = this.props;
+    document.title = "首页 - 「ONE · 一个」";
     dispatch(getHomeInfo());
     dispatch(changeTitle('一个'));
   }

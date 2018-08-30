@@ -8,9 +8,12 @@ export default class OneDetails extends Component {
     oneInfo: PropTypes.object.isRequired,
     id: PropTypes.string.isRequired
   }
+  componentWillMount = _ => {
+    this.props.oneInfo.volume && (document.title = this.props.oneInfo.volume + " - 「ONE · 一个」");
+  }
   render() {
     return (
-      <div>
+      <div className="m-b-xxl">
         <div className="one-img">
           <img className="img-full" src={this.props.oneInfo.img_url} alt="" />
         </div>

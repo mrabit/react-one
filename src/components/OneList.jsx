@@ -7,6 +7,9 @@ export default class OneList extends Component {
   static propTypes = {
     oneList: PropTypes.array.isRequired
   }
+  componentWillMount = _ => {
+    document.title = "图文 - 「ONE · 一个」";
+  }
   render() {
     return (
       <div>

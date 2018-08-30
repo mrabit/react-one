@@ -1,7 +1,6 @@
 /* html {
   background-color: #f0f3f4;
 } */
-
 body {
   font-family: "PingFangSC-Light", sans-serif, "Source Sans Pro", "Helvetica Neue", Helvetica, Arial;
   font-size: .875rem;
@@ -330,7 +329,7 @@ a {
 }
 
 .m-b-xxl {
-  margin-bottom: 3.125rem
+  margin-bottom: 3.5rem
 }
 
 .m-b-n-xxs {

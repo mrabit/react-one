@@ -10,6 +10,7 @@ class About extends Component {
   componentWillMount = _ => {
     const { dispatch } = this.props;
     dispatch(changeTitle('关于'));
+    document.title = "关于 - 「ONE · 一个」";
   }
   render() {
     return (

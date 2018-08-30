@@ -19,16 +19,19 @@ class ArticleDetails extends Component {
     dispatch(getArticleDetails(match.params.id));
   }
   componentWillReceiveProps = nextProps => {
-    const { match: nextMatch } = nextProps;
-    const { dispatch, match } = this.props;
+    const { match: nextMatch, article: nextArticle } = nextProps;
+    const { dispatch, match, article } = this.props;
     if (nextMatch.params.id !== match.params.id) {
       dispatch(getArticleDetails(nextMatch.params.id));
+    }
+    if (nextArticle.title != article.title) {
+      document.title = nextArticle.title + " - 「ONE · 一个」";
     }
   }
   render() {
     let Details = null;
     if (!this.props.loading) {
-      Details = (<div>
+      Details = (<div className="m-b-xxl">
         <div className="padder">
           <p className="article-title">
             {this.props.article.title}

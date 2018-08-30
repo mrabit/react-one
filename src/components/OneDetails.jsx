@@ -29,7 +29,7 @@ export default class OneDetails extends Component {
               {dayjs(this.props.oneInfo.post_date).format('DD')}
             </span>
             <span className="one-date m-t">
-              {dayjs(this.props.oneInfo.post_date).format('MM.YYYY')}
+              {dayjs(this.props.oneInfo.post_date).format('MMM.YYYY')}
             </span>
           </p>
           <span className="block one-line"></span>

@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { setLoading } from './header';
-import dayjs from 'dayjs';
 export const GET_HOME_INFO = "GET_HOME_INFO";
 
 

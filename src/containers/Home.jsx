@@ -38,7 +38,7 @@ class Home extends Component {
                   {dayjs(this.props.firstScreen.post_date).format('D')}
                 </p>
                 <p className="padder m-b-sm home-content-title">
-                  {this.props.firstScreen.volume} | {dayjs(this.props.firstScreen.post_date).format('MM.YYYY')}
+                  {this.props.firstScreen.volume} | {dayjs(this.props.firstScreen.post_date).format('MMM.YYYY')}
                 </p>
                 <p className="padder m-b-lg home-content-title">
                   {this.props.firstScreen.forward}

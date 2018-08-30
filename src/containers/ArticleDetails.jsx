@@ -24,7 +24,7 @@ class ArticleDetails extends Component {
     if (nextMatch.params.id !== match.params.id) {
       dispatch(getArticleDetails(nextMatch.params.id));
     }
-    if (nextArticle.title != article.title) {
+    if (nextArticle.title !== article.title) {
       document.title = nextArticle.title + " - 「ONE · 一个」";
     }
   }

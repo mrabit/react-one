@@ -4,8 +4,7 @@ import dayjs from 'dayjs';
 export const GET_HOME_INFO = "GET_HOME_INFO";
 
 
-export const getHomeInfo = (date = dayjs(new Date())
-  .format('YYYY-MM-DD')) => {
+export const getHomeInfo = (date = "latest") => {
   return dispatch => {
     dispatch(setLoading(true));
     return axios.get('/api/home', {

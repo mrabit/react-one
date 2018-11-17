@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../axios';
 import { setLoading } from './header';
 export const GET_ARTICLE_DETAILS = "GET_ARTICLE_DETAILS";
 

@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../axios';
 import { setLoading } from './header';
 export const GET_HOME_INFO = "GET_HOME_INFO";
 

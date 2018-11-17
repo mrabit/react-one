@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../axios';
 import { setLoading } from './header';
 export const GET_ONE_LIST = "GET_ONE_LIST";
 export const CHANGE_CURRENT_PAGE = "CHANGE_CURRENT_PAGE";

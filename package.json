@@ -2,10 +2,19 @@
   "name": "react-one",
   "version": "0.1.0",
   "private": true,
+  "eslintConfig": {
+    "extends": "react-app",
+    "rules": {
+      "no-undef": "off",
+      "no-restricted-globals": "off",
+      "no-unused-vars": "off"
+    }
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "classname": "0.0.0",
     "dayjs": "^1.7.5",
+    "md5": "^2.2.1",
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
@@ -24,7 +33,7 @@
   },
   "proxy": {
     "/api": {
-      "target": "https://one.mrabit.com/",
+      "target": "http://192.168.0.241:8181",
       "changeOrigin": true
     }
   }
